@@ -1,0 +1,30 @@
+zerops:
+  - setup: app
+    build:
+      base: elixir@1.16
+      envVariables:
+        MIX_ENV: prod
+        DATABASE_URL: ${db_connectionString}/${db_dbName}
+        SECRET_KEY_BASE: WbPINC9nMysgcyFFt3Zb2HoscrpsRMSJkH9dxkpfNd37joryuACU56PhpeIwIv/J
+      buildCommands:
+        - mix deps.get --only prod
+        - mix ecto.create
+        - mix ecto.migrate
+        - mix compile
+        - mix assets.deploy
+        - mix phx.digest
+        - mix release --overwrite
+      deployFiles: /
+    run:
+      base: alpine@latest
+      envVariables:
+        SECRET_KEY_BASE: WbPINC9nMysgcyFFt3Zb2HoscrpsRMSJkH9dxkpfNd37joryuACU56PhpeIwIv/J
+        DATABASE_URL: ${db_connectionString}/${db_dbName}
+        PORT: 4000
+        PHX_HOST: ${zeropsSubdomain}
+        POOL_SIZE: 10
+        PHX_SERVER: true
+      ports:
+        - port: 4000
+          httpSupport: true
+      start: _build/prod/rel/recipe_phoenix/bin/recipe_phoenix start
