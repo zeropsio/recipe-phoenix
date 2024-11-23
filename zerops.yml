@@ -5,7 +5,7 @@ zerops:
       envVariables:
         MIX_ENV: prod
         DATABASE_URL: ${db_connectionString}/${db_dbName}
-        SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+        SECRET_KEY_BASE: ${RUNTIME_SECRET_KEY_BASE}
       buildCommands:
         - echo $SECRET_KEY_BASE
         - mix deps.get --only prod
