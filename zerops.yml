@@ -5,7 +5,6 @@ zerops:
       envVariables:
         MIX_ENV: prod
         DATABASE_URL: ${db_connectionString}/${db_dbName}
-        SECRET_KEY_BASE: WbPINC9nMysgcyFFt3Zb2HoscrpsRMSJkH9dxkpfNd37joryuACU56PhpeIwIv/J
       buildCommands:
         - mix deps.get --only prod
         - mix ecto.create
@@ -18,7 +17,6 @@ zerops:
     run:
       base: alpine@latest
       envVariables:
-        SECRET_KEY_BASE: WbPINC9nMysgcyFFt3Zb2HoscrpsRMSJkH9dxkpfNd37joryuACU56PhpeIwIv/J
         DATABASE_URL: ${db_connectionString}/${db_dbName}
         PORT: 4000
         PHX_HOST: ${zeropsSubdomain}

@@ -1,0 +1,17 @@
+project:
+  name: recipe-phoenix
+  tags:
+    - zerops-recipe
+    
+services:
+  - hostname: app
+    type: elixir@1.16
+    buildFromGit: https://github.com/zeropsio/recipe-phoenix
+    enableSubdomainAccess: true
+    envSecrets:
+      SECRET_KEY_BASE: <@generateRandomString(<64>)>
+    
+  - hostname: db
+    type: postgresql@16
+    mode: NON_HA
+    priority: 1
