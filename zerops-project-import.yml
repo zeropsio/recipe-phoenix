@@ -1,3 +1,4 @@
+#yamlPreprocessor=on
 project:
   name: recipe-phoenix
   tags:
@@ -10,7 +11,7 @@ services:
     enableSubdomainAccess: true
     envSecrets:
       SECRET_KEY_BASE: <@generateRandomString(<64>)>
-    
+
   - hostname: db
     type: postgresql@16
     mode: NON_HA

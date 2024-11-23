@@ -5,6 +5,7 @@ zerops:
       envVariables:
         MIX_ENV: prod
         DATABASE_URL: ${db_connectionString}/${db_dbName}
+        SECRET_KEY_BASE: ${SECRET_KEY_BASE}
       buildCommands:
         - mix deps.get --only prod
         - mix ecto.create
