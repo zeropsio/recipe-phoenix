@@ -1,5 +1,5 @@
 # Zerops x Phoenix
-This is a Phoenix application running on [Zerops](https://zerops.io) — built with Phoenix 1.7 and Elixir 1.16, featuring LiveView and PostgreSQL integration.
+Phoenix is a web framework for building building fast, reliable web applications in Elixir. This recipe helps you to get started with a Phoenix app on the Zerops platform.
 
 ![phoenix](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/svg/cover-phoenix.svg)
 
